@@ -1,0 +1,61 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.master{
+    width: 780px;
+    height: 439px;
+    position: relative;
+
+}
+
+.master img{
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    transition-duration: 0.5s;
+    opacity: 0;
+}
+.master img.active{
+    opacity: 1;
+}
+.items{
+    width: 183px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.item{
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+}
+.item img{
+    width: 100%;
+    object-fit: cover;
+}
+.item::before{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: #00000080;
+    pointer-events: none;
+}
+.item.active::before{
+    opacity: 0;
+}
+.item.active::after{
+    content: "";
+    height: 108%;
+    width: 102%;
+    background: url(./img/border.png)
+    no-repeat 50%/100%;
+    position: absolute;
+    left: -1%;
+    top: -5%;
+}
